@@ -1,39 +1,57 @@
 <?php
-class MainController
+require './Services/Render.php';
+class MainController extends Render
 {
     public function acceuil()
     {
-        $page_description = 'Bienvenue sur mon site';
-        $page_title = 'Accueil';
-        $page_content = "<h1 class='text-2xl text-blue-600 text-center'>Bienvenue sur mon site</h1>";
-        require 'layouts/base.php';
+        $data_page = [
+            'page_description' => 'description de la page d\'accueil',
+            'page_title' => 'Accueil',
+            'view' => 'View/accueil.view.php',
+            'template' => 'layouts/base.php'
+        ];
+        $this->render($data_page);
     }
     public function page1()
     {
-        $page_description = 'Page 1';
-        $page_title = 'Page 1';
-        $page_content = "<h1 class='text-2xl text-blue-600 text-center'>Page 1</h1>";
-        require 'layouts/base.php';
+        $data_page = [
+            'page_description' => 'Page 1',
+            'page_title' => 'Page 1',
+            'view' => 'View/page1.view.php',
+            'template' => 'layouts/base.php'
+        ];
+        $this->render($data_page);
     }
     public function page2()
     {
-        $page_description = 'Page 2';
-        $page_title = 'Page 2';
-        $page_content = "<h1 class='text-2xl text-blue-600 text-center'>Page 2</h1>";
-        require 'layouts/base.php';
+        $data_page = [
+            'page_description' => 'Page 2',
+            'page_title' => 'Page 2',
+            'view' => 'View/page2.view.php',
+            'template' => 'layouts/base.php'
+        ];
+        $this->render($data_page);
     }
     public function page3()
     {
-        $page_description = 'Page 3';
-        $page_title = 'Page 3';
-        $page_content = "<h1 class='text-2xl text-blue-600 text-center'>Page 3</h1>";
-        require 'layouts/base.php';
+        $data_page = [
+            'page_description' => 'Page 3',
+            'page_title' => 'Page 3',
+            'view' => 'View/page3.view.php',
+            'template' => 'layouts/base.php'
+        ];
+        $this->render($data_page);
     }
     public function pageErreur($msg)
     {
-        $page_description = 'Erreur';
-        $page_title = 'Erreur';
-        $page_content = $msg;
-        require 'layouts/base.php';
+        $data_page = [
+            'page_description' => 'Page introuvable',
+            'page_title' => 'Erreur',
+            'msg' => $msg,
+            'view' => 'View/erreur.view.php',
+            'template' => 'layouts/base.php'
+
+        ];
+        $this->render($data_page);
     }
 }
